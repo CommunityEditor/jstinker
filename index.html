@@ -21,8 +21,6 @@
     <script src="js/jstinker.js"></script>
     <!-- Bootstrap Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <!-- Bootstrap Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <!-- JSTinker Style -->
     <link rel="stylesheet" href="css/jstinker.css" type="text/css">
     <!-- Bootstrap Latest compiled and minified JavaScript -->
@@ -46,7 +44,7 @@
             <ul class="nav navbar-nav">
                 <li id="btnRun"><a href=""><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Run</a></li>
                 <li id="btnTidyUp"><a href=""><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> TidyUp</a></li>
-                <li id="btnTogether"><a href=""><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> Collaborate</button></li>
+                <li id="btnTogether"><a href=""><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> Collaborate</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
@@ -58,170 +56,26 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingTwo">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                            Tinker Options
-                        </a>
+                        Tinker Options
                     </h4>
                 </div>
-                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                    <div class="panel-body">
-                        <input type="text" placeholder="Name your Tinker">
-                        <textarea placeholder="Description"></textarea>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"></input><span class="chk_lbl">Normalize css</span>
-                            </label>
-                        </div>
-                        <p>Body tag</p>
-                        <input type="text">
-                        <p>DTD</p>
-                        <div class="dropdown">
-                            <div class="btn-group">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-expanded="true">
-                                HTML 5
-                            <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu scrollable-menu" id="dropdownMenu3" role="menu" aria-labelledby="dropdownMenu3">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">XHTML 1.0 Strict</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">XHTML 1.0 Transitional</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">HTML 5</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">HTML 4.01 Strict</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">HTML 4.01 Transitional</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">HTML 4.01 Frameset</a></li>
-                            </ul>
-                            </div>
-                        </div>
-                        When to run JS
-                        <div class="dropdown">
-                            <div class="btn-group">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
-                                onLoad
-                            <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu scrollable-menu" id="dropdownMenu2" role="menu" aria-labelledby="dropdownMenu2">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">onLoad</a></li>
-                                <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="">onDomReady</a></li> -->
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">No wrap - in head</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">No wrap - in body</a></li>
-                            </ul>
-                            </div>
-                        </div>
-                        <p>Framework script attribute</p>
-                        <input type="text" placeholder="ie. data-type=''">
-                    </div>
-                </div>
-            </div>
-            <!-- External Resources -->
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingThree">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                            External Resources
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                    <div class="panel-body">
-                        <input type="text" class="ext_res" placeholder="JavaScript/CSS URI">
-                        <button type="button" class="btn btn-default add">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                <div class="panel-body">
+                    <input type="text" placeholder="Name your Tinker">
+                    <textarea placeholder="Description"></textarea>
+                    When to run JS
+                    <div class="dropdown">
+                        <div class="btn-group">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+                            onLoad
+                        <span class="caret"></span>
                         </button>
-                    </div>
-                </div>
-            </div>
-            <!-- Languages -->
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingFour">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                            Languages
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                    <div class="panel-body">
-                        <div class="dropdown langcontainer">
-                            <div class="btn-group">
-                            <button class="btn btn-default dropdown-toggle langbutton" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-expanded="true">
-                                HTML
-                            <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu scrollable-menu" id="dropdownMenu4" role="menu" aria-labelledby="dropdownMenu4">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">HTML</a></li>
-                            </ul>
-                            </div>
+                        <ul class="dropdown-menu scrollable-menu" id="dropdownMenu2" role="menu" aria-labelledby="dropdownMenu2">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="">onLoad</a></li>
+                            <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="">onDomReady</a></li> -->
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="">No wrap - in head</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="">No wrap - in body</a></li>
+                        </ul>
                         </div>
-                        <div class="dropdown langcontainer langright">
-                            <div class="btn-group">
-                            <button class="btn btn-default dropdown-toggle langbutton" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-expanded="true">
-                                CSS
-                            <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu scrollable-menu" id="dropdownMenu5" role="menu" aria-labelledby="dropdownMenu5">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">CSS</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">SCSS</a></li>
-                            </ul>
-                            </div>
-                        </div>
-                        <div class="dropdown langcontainer">
-                            <div class="btn-group">
-                            <button class="btn btn-default dropdown-toggle langbutton" type="button" id="dropdownMenu6" data-toggle="dropdown" aria-expanded="true">
-                                JavaScript
-                            <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu scrollable-menu" id="dropdownMenu6" role="menu" aria-labelledby="dropdownMenu6">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">JavaScript</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">CoffeeScript</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="">JavaScript 1.7</a></li>
-                            </ul>
-                            </div>
-                        </div>
-                        <div class="dropdown langcontainer langright">
-                            <div class="btn-group">
-                            <button class="btn btn-default langbutton" type="button" id="dropdownMenu7" data-toggle="dropdown" aria-expanded="true">
-                                Results
-                            </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Ajax Requests
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingFive">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-                            Ajax Requests
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                    <div class="panel-body">
-                        Stuff
-                    </div>
-                </div>
-            </div> -->
-            <!-- Legal, Credits and Links -->
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingSix">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
-                            Legal, Credits and Links
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-                    <div class="panel-body">
-                        <p>Created and maintained by <a title="John's homepage" href="http://johncipponeri.github.io/">John Cipponeri</a>.</p>
-                        <p>CSS Design by <a title="Gianni's Twitter" href="https://twitter.com/Hazulu">@Hazulu</a></p>
-                        <p>Hosted by <a href="https://pages.github.com/">GitHub Pages</a>.</p>
-                        <p>Special thanks to <a href="http://jsfiddle.net" target="_new">JSFiddle</a> as this is an open source clone of it.</p>
-                        <p><strong>License</strong></p>
-                        <p>All code belongs to the poster and no license is enforced.</p>
-                        <p>JSTinker or its author are not responsible or liable for any loss or damage of any kind during the usage of provided code.</p>
-                        <p><strong>Links</strong></p>
-                        For updates please follow my
-                        <a href="http://twitter.com/johncipponeri/" target="_new">tweets</a>
                     </div>
                 </div>
             </div>

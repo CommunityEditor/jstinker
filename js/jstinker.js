@@ -1,48 +1,7 @@
 $("document").ready(function() {
-    var libs = {};
 
     // Script Injection Dropdown
     $("#dropdownMenu2 li a").click(function(event){
-        event.preventDefault();
-
-        var dropdown = $(this).parents('.btn-group');
-
-        var selText = $(this).text();
-        dropdown.find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
-    });
-
-    // Doctype Dropdown
-    $("#dropdownMenu3 li a").click(function(event){
-        event.preventDefault();
-
-        var dropdown = $(this).parents('.btn-group');
-
-        var selText = $(this).text();
-        dropdown.find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
-    });
-
-    // HTML Dropdown
-    $("#dropdownMenu4 li a").click(function(event){
-        event.preventDefault();
-
-        var dropdown = $(this).parents('.btn-group');
-
-        var selText = $(this).text();
-        dropdown.find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
-    });
-
-    // CSS Dropdown
-    $("#dropdownMenu5 li a").click(function(event){
-        event.preventDefault();
-
-        var dropdown = $(this).parents('.btn-group');
-
-        var selText = $(this).text();
-        dropdown.find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
-    });
-
-    // Javascript Dropdown
-    $("#dropdownMenu6 li a").click(function(event){
         event.preventDefault();
 
         var dropdown = $(this).parents('.btn-group');
