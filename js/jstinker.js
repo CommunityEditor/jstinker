@@ -28,7 +28,7 @@ $("document").ready(function() {
         var dropdownMenu2Sel = $("#dropdownMenu2").parents('.btn-group').find('.dropdown-toggle').text().trim();
 
         if (dropdownMenu2Sel == "onLoad")
-            previewDoc.write("<script type='text/javascript'>window.onload = function() {" + script + "}</script>");
+            previewDoc.write("<script type='text/javascript'>window.onload = function() {" + script + "\n}</script>");
         //else if (dropdownMenu2Sel == "onDomready")
         //
         else if (dropdownMenu2Sel == "No wrap - in head")
