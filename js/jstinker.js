@@ -1,17 +1,7 @@
-$("document").ready(function() {
-
-    // Script Injection Dropdown
-    $("#dropdownMenu2 li a").click(function(event){
-        event.preventDefault();
-
-        var dropdown = $(this).parents('.btn-group');
-
-        var selText = $(this).text();
-        dropdown.find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
-    });
+document.addEventListener("DOMContentLoaded", function() {
 
     // RUN Button
-    $("#btnRun").click(function(event) {
+    document.getElementById("btnRun").addEventListener("click", function(event) {
         event.preventDefault();
 
         var previewDoc = window.frames[0].document;
@@ -25,18 +15,18 @@ $("document").ready(function() {
         previewDoc.write("<head>");
         previewDoc.write("<style type='text/css'>" + css + "</style>");
 
-        var dropdownMenu2Sel = $("#dropdownMenu2").parents('.btn-group').find('.dropdown-toggle').text().trim();
+        var selectJSRun = document.getElementById("selectJSRun").value;
 
-        if (dropdownMenu2Sel == "onLoad")
+        if (selectJSRun === "onLoad")
             previewDoc.write("<script type='text/javascript'>window.onload = function() {" + script + "\n}</script>");
-        //else if (dropdownMenu2Sel == "onDomready")
+        //else if (selectJSRun === "onDomready")
         //
-        else if (dropdownMenu2Sel == "No wrap - in head")
+        else if (selectJSRun === "inHead")
             previewDoc.write("<script type='text/javascript'>" + script + "</script>");
         previewDoc.write("</head>");
         previewDoc.write("<body>");
         previewDoc.write(html);
-        if (dropdownMenu2Sel == "No wrap - in body")
+        if (selectJSRun === "inBody")
             previewDoc.write("<script type='text/javascript'>" + script + "</script>");
         previewDoc.write("</body>");
         previewDoc.write("</html>");
@@ -44,10 +34,10 @@ $("document").ready(function() {
     });
 
     // Preview code on page load
-    $("#btnRun").click();
+    document.getElementById("btnRun").click();
 
     // TIDYUP Button
-    $("#btnTidyUp").click(function(event) {
+    document.getElementById("btnTidyUp").addEventListener("click", function(event) {
         event.preventDefault();
 
         var html = ace.edit("html-editor").getSession().getValue();
@@ -67,7 +57,7 @@ $("document").ready(function() {
     });
 
     // Together Button
-    $("#btnTogether").click(function(event) {
+    document.getElementById("btnTogether").addEventListener("click", function(event) {
       event.preventDefault();
 
       TogetherJS(this);
