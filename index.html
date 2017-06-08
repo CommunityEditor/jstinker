@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create a new tinker - JSTinker</title>
+    <title>New program &mdash; OurJSEditor</title>
 
     <!-- Latest jQuery from Google CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -34,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> JSTinker</a>
+            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> OurJSEditor</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -43,6 +43,7 @@
                 <li id="btnRun"><a href=""><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Run</a></li>
                 <li id="btnTidyUp"><a href=""><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> TidyUp</a></li>
                 <li id="btnTogether"><a href=""><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> Collaborate</a></li>
+                <li id="btnSave"><a href=""><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
@@ -50,16 +51,10 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            <!-- Tinker Options -->
+            <!-- Program Options -->
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingTwo">
-                    <h4 class="panel-title">
-                        Tinker Options
-                    </h4>
-                </div>
                 <div class="panel-body">
-                    <input type="text" placeholder="Name your Tinker">
-                    <textarea placeholder="Description"></textarea>
+                    <input type="text" placeholder="Name your program">
                     When to run JS
                     <div class="dropdown">
                         <div class="btn-group">
