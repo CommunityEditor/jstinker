@@ -47,7 +47,7 @@ body {
 }
 
 .navbar-default {
-    background: #609B61;
+    background: rgb(72, 126, 179);
     border-color: #cecece;
     border-radius: 0px;
     border: none;
@@ -80,7 +80,7 @@ body {
 }
 
 .navbar-default ul li {
-    background: #579357;
+    background: rgb(65, 118, 169);
     margin-right: 1px;
     float: left;
     list-style: none;
