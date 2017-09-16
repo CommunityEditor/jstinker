@@ -23,38 +23,17 @@ function runProgram (event) {
         event.preventDefault();
     }
 
-    var css    = ace.edit("css-editor").getSession().getValue();
-    var script = ace.edit("js-editor").getSession().getValue();
-    var html   = ace.edit("html-editor").getSession().getValue();
-
-	var combinedCode = "";
-
-    combinedCode += "<!DOCTYPE html>";
-    combinedCode += "<html>";
-    combinedCode += "<head>";
-    combinedCode += "<style type='text/css'>" + css + "</style>";
-
-    var selectJSRun = document.getElementById("selectJSRun").value;
-
-    if (selectJSRun === "onLoad")
-        combinedCode += "<script type='text/javascript'>window.onload = function() {" + script + "\n}</script>";
-    //else if (selectJSRun === "onDomready")
-    //
-    else if (selectJSRun === "inHead")
-        combinedCode += "<script type='text/javascript'>" + script + "</script>";
-    combinedCode += "</head>";
-    combinedCode += "<body>";
-    combinedCode += html;
-    if (selectJSRun === "inBody")
-        combinedCode += "<script type='text/javascript'>" + script + "</script>";
-    combinedCode += "</body>";
-    combinedCode += "</html>";
+    //Insert JS
+    var html = ace.edit("html-editor").getSession().getValue();
+    html = html.replace(/\/\*\[OurJSEditor insert:(js|css)\]\*\//gi, function (comment, language, position, code) {
+        return ace.edit(language.toLowerCase() + "-editor").getSession().getValue();
+    })
 
     var frame = document.getElementById("preview");
     //This removes the frame element from the DOM (and then replaces it), clearing the user's old code.
     frame.parentNode.replaceChild(frame, frame);
     var outputDoc = frame.contentDocument;
-    outputDoc.write(combinedCode);
+    outputDoc.write(html);
     outputDoc.close();
 }
 
