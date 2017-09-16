@@ -1,3 +1,8 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+
 body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 12px;
@@ -5,6 +10,7 @@ body {
     color: #333;
     background-color: #fff;
     margin: 0;
+    height: 100%;
 }
 
 .editors {
@@ -39,7 +45,7 @@ body {
     font-size: 11px;
     width: 217px;
     position: absolute;
-    top: 51px;
+    top: 0;
     left: 0;
     background-color: #fff;
     color: #444;
@@ -55,6 +61,7 @@ body {
     margin-bottom: 0px;
     min-height: 50px;
     position: relative;
+    z-index: 1;
 }
 
 .navbar-default .navbar-brand {
@@ -106,7 +113,17 @@ body {
     box-sizing: border-box;
     font-family: inherit;
     font-size: inherit;
-    line-height: inherit
+    line-height: inherit;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#program-title.editable:hover {
+    cursor: pointer;
+}
+
+#btnSave {
+    display: none;
 }
 
 .dropdown {

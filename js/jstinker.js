@@ -1,40 +1,64 @@
-document.addEventListener("DOMContentLoaded", function() {
+var titleLabel;
+var titleInput = document.createElement("input");
+titleInput.setAttribute("maxlength", "45");
+titleInput.setAttribute("id", "program-title");
+titleInput.addEventListener("change", removeTitleInput);
+titleInput.addEventListener("blur", removeTitleInput);
+titleInput.addEventListener("keypress", function (e) {
+    //If the enter or return key is pressed.
+    if (e.which === 13) {
+        removeTitleInput();
+    }
+});
 
-    // RUN Button
-    document.getElementById("btnRun").addEventListener("click", function(event) {
+function removeTitleInput () {
+    if (titleInput.parentNode === null) return;
+    titleLabel.innerText = titleInput.value;
+    titleInput.parentNode.insertBefore(titleLabel, titleInput);
+    titleInput.parentNode.removeChild(titleInput);
+}
+
+function runProgram (event) {
+    if (event) {
         event.preventDefault();
+    }
 
-        var previewDoc = window.frames[0].document;
+    var css    = ace.edit("css-editor").getSession().getValue();
+    var script = ace.edit("js-editor").getSession().getValue();
+    var html   = ace.edit("html-editor").getSession().getValue();
 
-        var css    = ace.edit("css-editor").getSession().getValue();
-        var script = ace.edit("js-editor").getSession().getValue();
-        var html   = ace.edit("html-editor").getSession().getValue();
+	var combinedCode = "";
 
-        previewDoc.write("<!DOCTYPE html>");
-        previewDoc.write("<html>");
-        previewDoc.write("<head>");
-        previewDoc.write("<style type='text/css'>" + css + "</style>");
+    combinedCode += "<!DOCTYPE html>";
+    combinedCode += "<html>";
+    combinedCode += "<head>";
+    combinedCode += "<style type='text/css'>" + css + "</style>";
 
-        var selectJSRun = document.getElementById("selectJSRun").value;
+    var selectJSRun = document.getElementById("selectJSRun").value;
 
-        if (selectJSRun === "onLoad")
-            previewDoc.write("<script type='text/javascript'>window.onload = function() {" + script + "\n}</script>");
-        //else if (selectJSRun === "onDomready")
-        //
-        else if (selectJSRun === "inHead")
-            previewDoc.write("<script type='text/javascript'>" + script + "</script>");
-        previewDoc.write("</head>");
-        previewDoc.write("<body>");
-        previewDoc.write(html);
-        if (selectJSRun === "inBody")
-            previewDoc.write("<script type='text/javascript'>" + script + "</script>");
-        previewDoc.write("</body>");
-        previewDoc.write("</html>");
-        previewDoc.close();
-    });
+    if (selectJSRun === "onLoad")
+        combinedCode += "<script type='text/javascript'>window.onload = function() {" + script + "\n}</script>";
+    //else if (selectJSRun === "onDomready")
+    //
+    else if (selectJSRun === "inHead")
+        combinedCode += "<script type='text/javascript'>" + script + "</script>";
+    combinedCode += "</head>";
+    combinedCode += "<body>";
+    combinedCode += html;
+    if (selectJSRun === "inBody")
+        combinedCode += "<script type='text/javascript'>" + script + "</script>";
+    combinedCode += "</body>";
+    combinedCode += "</html>";
 
-    // Preview code on page load
-    document.getElementById("btnRun").click();
+    var frame = document.getElementById("preview");
+    //This removes the frame element from the DOM (and then replaces it), clearing the user's old code.
+    frame.parentNode.replaceChild(frame, frame);
+    var outputDoc = frame.contentDocument;
+    outputDoc.write(combinedCode);
+    outputDoc.close();
+}
+
+document.addEventListener("DOMContentLoaded", function() {
 
     // TIDYUP Button
     document.getElementById("btnTidyUp").addEventListener("click", function(event) {
@@ -63,4 +87,22 @@ document.addEventListener("DOMContentLoaded", function() {
       TogetherJS(this);
       return false;
     });
+
+    document.getElementById("btnRun").addEventListener("click", runProgram);
+
+    titleLabel = document.getElementById("program-title");
+    titleLabel.classList.add("editable");
+    titleLabel.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        titleInput.value = this.innerText;
+        titleLabel.parentNode.insertBefore(titleInput, titleLabel);
+        titleLabel.parentNode.removeChild(titleLabel);
+        titleInput.focus();
+    });
+});
+
+//Run program on window load. That way Ace is definitely loaded.
+window.addEventListener("load", function () {
+    runProgram();
 });
